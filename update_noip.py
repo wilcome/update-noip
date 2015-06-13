@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import requests
-import urllib2
+import ipgetter
 import random
 import syslog
 
@@ -19,7 +19,7 @@ USERNAME = "" # noip.com username
 PASSWORD = "" # noip.com password
 
 _old_ = IPS_BAG[random.randrange(0,len(IPS_BAG) - 1)]
-_new_ = urllib2.urlopen("http://curlmyip.com/").read().strip()
+_new_ = ipgetter.myip()
 _url_ = "https://dynupdate.no-ip.com/nic/update?hostname={hostname}&myip={ip}"
 
 log('... Update www.noip.com account ...')
